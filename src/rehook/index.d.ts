@@ -13,35 +13,35 @@ declare module '@team-griffin/rehook' {
    * @param component
    * @returns
    */
-  export function catchRender(component: Function): Object;
+  export function catchRender(component: Function): any;
 
   /**
    * 
    * @param defaultProps
    * @returns
    */
-  export function defaultProps(defaultProps: Object): Object;
+  export function defaultProps(defaultProps: Object): any;
 
   /**
    * 
    * @param propName
    * @returns
    */
-  export function flattenProp(propName: string | symbol): Object;
+  export function flattenProp(propName: string | symbol): any;
 
   /**
    * 
    * @param spec
    * @returns
    */
-  export function lifecycle(spec: Object): Object;
+  export function lifecycle(spec: Object): any;
 
   /**
    * 
    * @param fn
    * @returns
    */
-  export function mapProps(fn: Function): Object;
+  export function mapProps(fn: Function): any;
 
   /**
    * 
@@ -49,14 +49,14 @@ declare module '@team-griffin/rehook' {
    * @param enhance
    * @returns
    */
-  export function namespace(propName: string | symbol, enhance: Function): Object;
+  export function namespace(propName: string | symbol, enhance: Function): any;
 
   /**
    * 
    * @param fns
    * @returns
    */
-  export function pipe(...fns: any[]): Object;
+  export function pipe(...fns: any[]): any;
 
   /**
    * 
@@ -64,34 +64,34 @@ declare module '@team-griffin/rehook' {
    * @param b
    * @returns
    */
-  export function renameProp(a: string | symbol, b: string | symbol): Object;
+  export function renameProp(a: string | symbol, b: string | symbol): any;
 
   /**
    * 
    * @param propMap
    * @returns
    */
-  export function renameProps(propMap: Object): Object;
+  export function renameProps(propMap: Object): any;
 
   /**
    * 
    * @param comp
    * @returns
    */
-  export function renderComponent(comp: any): Object;
+  export function renderComponent(comp: any): any;
 
   /**
    * 
    * @returns
    */
-  export function renderNothing(): Object;
+  export function renderNothing(): any;
 
   /**
    * 
    * @param handlers
    * @returns
    */
-  export function withHandlers(handlers: Object): Object;
+  export function withHandlers(handlers: Object): any;
 
   /**
    * 
@@ -99,7 +99,7 @@ declare module '@team-griffin/rehook' {
    * @param createProps
    * @returns
    */
-  export function withPropsOnChange(shouldMapOrKeys: any, createProps: Function): Object;
+  export function withPropsOnChange(shouldMapOrKeys: any, createProps: Function): any;
 
   /**
    * 
@@ -122,7 +122,7 @@ declare module '@team-griffin/rehook' {
    * @param handlers
    * @returns
    */
-  export function withStateHandlers(initialValue: any, handlers: Object): Object;
+  export function withStateHandlers(initialValue: any, handlers: Object): any;
 
   /**
    * 
