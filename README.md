@@ -2,12 +2,18 @@
 
 [![Build Status](https://travis-ci.org/Synvox/rehook.svg?branch=master)](https://travis-ci.org/Synvox/rehook)
 
+---
+This is a fork of [@synvox/rehook](https://github.com/synvox/rehook) that upgrades to the non-alpha release of Hooks (^16.8) and adds a TypeScript declaration module. (There are open Pull Requests for these on the original repo but they have not yet been merged.)
+---
+
 Rehook implements an API similar to [Recompose](https://github.com/acdlite/recompose), but using React Hooks.
 
 > Note, React Hooks are in alpha. Refer to the official documentation: [React Hooks](https://reactjs.org/docs/hooks-intro.html)
 
 ```
-npm i @synvox/rehook
+npm i @team-griffin/rehook
+
+yarn add @team-griffin/rehook
 ```
 
 ## What is Rehook?
