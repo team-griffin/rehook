@@ -105,7 +105,7 @@ declare module '@team-griffin/rehook' {
    * 
    * @param fn
    */
-  export function withProps(fn: Function | Object): void;
+  export function withProps(fn: Function | Object): any;
 
   /**
    * 
@@ -114,7 +114,7 @@ declare module '@team-griffin/rehook' {
    * @param reducer
    * @param initialValue
    */
-  export function withReducer(stateName: string | symbol, dispatchName: string | symbol, reducer: Function, initialValue: any): void;
+  export function withReducer(stateName: string | symbol, dispatchName: string | symbol, reducer: Function, initialValue: any): any;
 
   /**
    * 
@@ -130,5 +130,5 @@ declare module '@team-griffin/rehook' {
    * @param stateUpdaterName
    * @param initialState
    */
-  export function withState(stateName: string | symbol, stateUpdaterName: string | symbol, initialState: any): void;
+  export function withState(stateName: string | symbol, stateUpdaterName: string | symbol, initialState: any): any;
 }
