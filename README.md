@@ -280,7 +280,7 @@ function Form() {
 
 ```js
 defaultProps(
-  props: Object
+  props: Object | (props) => Object
 ): (props: Object) => Object
 ```
 

@@ -20,7 +20,7 @@ declare module '@team-griffin/rehook' {
    * @param defaultProps
    * @returns
    */
-  export function defaultProps(defaultProps: Object): any;
+  export function defaultProps(defaultProps: object | Function): any;
 
   /**
    * 
