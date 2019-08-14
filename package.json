@@ -1,7 +1,7 @@
 {
   "name": "@team-griffin/rehook",
   "public": true,
-  "version": "1.2.0",
+  "version": "1.3.0",
   "main": "dist/rehook.js",
   "umd:main": "dist/rehook.umd.js",
   "source": "src/rehook/index.js",

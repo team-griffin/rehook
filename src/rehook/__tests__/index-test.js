@@ -22,5 +22,6 @@ test('exports expected', () => {
     'withReducer',
     'withStateHandlers',
     'withState',
+    'tap',
   ])
 })

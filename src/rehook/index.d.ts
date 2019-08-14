@@ -43,6 +43,8 @@ declare module '@team-griffin/rehook' {
    */
   export function mapProps(fn: Function): any;
 
+  export function tap(fn: Function): any;
+
   /**
    * 
    * @param propName
