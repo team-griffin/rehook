@@ -1,4 +1,5 @@
 declare module '@team-griffin/rehook' {
+  import { ComponentType, Component } from 'react';
   /**
    * 
    * @param condition
@@ -6,21 +7,21 @@ declare module '@team-griffin/rehook' {
    * @param right
    * @returns
    */
-  export function branch(condition: Function, left: Function, right: Function): Function;
+  export function branch<A, B, C>(condition: (props: A) => boolean, left: (props: A) => B, right?: (props: A) => C): B | C;
 
   /**
    * 
    * @param component
    * @returns
    */
-  export function catchRender(component: Function): any;
+  export function catchRender<A>(component: ComponentType<A>): any;
 
   /**
    * 
    * @param defaultProps
    * @returns
    */
-  export function defaultProps(defaultProps: object | Function): any;
+  export function defaultProps<A, B>(defaultProps: B | ((props: A) => B)): (props: A) => B & A;
 
   /**
    * 
@@ -34,16 +35,20 @@ declare module '@team-griffin/rehook' {
    * @param spec
    * @returns
    */
-  export function lifecycle(spec: Object): any;
+  export function lifecycle<A>(spec: {
+    componentDidMount?: (this: Component<A>) => void,
+    componentWillUnmount?: (this: Component<A>) => void,
+    componentDidUpdate?: (this: Component<A>) => void,
+  }): (props: A) => A;
 
   /**
    * 
    * @param fn
    * @returns
    */
-  export function mapProps(fn: Function): any;
+  export function mapProps<A, B>(fn: (props: A) => B): (props: A) => B;
 
-  export function tap(fn: Function): any;
+  export function tap<A>(fn: (props: A) => any): (props: A) => A;
 
   /**
    * 
@@ -51,7 +56,7 @@ declare module '@team-griffin/rehook' {
    * @param enhance
    * @returns
    */
-  export function namespace(propName: string | symbol, enhance: Function): any;
+  export function namespace<A, B, C extends string>(propName: C, enhance: (props: A) => B): (props: A) => A & { [T in C]: B};
 
   /**
    * 
@@ -66,7 +71,15 @@ declare module '@team-griffin/rehook' {
    * @param b
    * @returns
    */
-  export function renameProp(a: string | symbol, b: string | symbol): any;
+  type RenamablePropA<S extends string, V> = {
+    [K in S]: V
+    // [key: string]: any,
+  };
+  type RenamablePropB = {
+    [key: string]: any,
+  }
+  interface RenamableProp<S extends string, V> extends RenamablePropA<S, V>, RenamablePropB {}
+  export function renameProp<S extends string, T extends string, V, A extends RenamableProp<S, V>>(a: S, b: T): (props: A) => Pick<A, Exclude<keyof A, A>> & { [K in T]: V};
 
   /**
    * 
@@ -93,7 +106,11 @@ declare module '@team-griffin/rehook' {
    * @param handlers
    * @returns
    */
-  export function withHandlers(handlers: Object): any;
+  export function withHandlers<A, H>(
+    handlers: {
+      [K in keyof H]: (props: A) => H[K]
+    },
+  ): (props: A) => A & H;
 
   /**
    * 
@@ -107,7 +124,9 @@ declare module '@team-griffin/rehook' {
    * 
    * @param fn
    */
-  export function withProps(fn: Function | Object): any;
+  export function withProps<A, B>(
+    fn: ((props: A) => B) | B,
+  ): (props: A) => A & B;
 
   /**
    * 
@@ -116,7 +135,12 @@ declare module '@team-griffin/rehook' {
    * @param reducer
    * @param initialValue
    */
-  export function withReducer(stateName: string | symbol, dispatchName: string | symbol, reducer: Function, initialValue: any): any;
+  export function withReducer<A, S extends string, T extends string, V>(
+    stateName: S,
+    dispatchName: T,
+    reducer: Function,
+    initialValue: V,
+  ): (props: A) => A & { [K in S]: V } & { [K in T]: Function };
 
   /**
    * 
