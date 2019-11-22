@@ -7,14 +7,22 @@ declare module '@team-griffin/rehook' {
    * @param right
    * @returns
    */
-  export function branch<A, B, C>(condition: (props: A) => boolean, left: (props: A) => B, right?: (props: A) => C): B | C;
+  export function branch<A, B>(
+    condition: (props: A) => boolean,
+    left: (props: A) => B,
+  ): (props: A) => B;
+  export function branch<A, B, C>(
+    condition: (props: A) => boolean,
+    left: (props: A) => B,
+    right?: (props: A) => C
+  ): (props: A) => (B | C);
 
   /**
    * 
    * @param component
    * @returns
    */
-  export function catchRender<A>(component: ComponentType<A>): any;
+  export function catchRender<A>(component: ComponentType<A>): ComponentType<A>;
 
   /**
    * 
@@ -93,7 +101,7 @@ declare module '@team-griffin/rehook' {
    * @param comp
    * @returns
    */
-  export function renderComponent(comp: any): any;
+  export function renderComponent<A>(component: ComponentType<A>): (props: A) => A;
 
   /**
    * 
