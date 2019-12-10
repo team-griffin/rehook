@@ -109,7 +109,7 @@ declare module '@team-griffin/rehook' {
    */
   export function renderNothing(): any;
 
-  type HandlerInner = <T, R>(...args: T[]) => R | void;
+  type HandlerInner = (...args: any[]) => any;
   type Handler<A> = (props: A) => HandlerInner;
   type Handlers<A> = {
     [key: string]: Handler<A>,
