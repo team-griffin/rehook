@@ -122,7 +122,7 @@ declare module '@team-griffin/rehook' {
   export function withHandlers<A, H extends Handlers<A>>(
     handlers: H,
   ): (props: A) => A & {
-    [K in H]: ReturnType<H[K]>
+    [K in keyof H]: ReturnType<H[K]>
   };
 
   /**
