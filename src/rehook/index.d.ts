@@ -86,7 +86,8 @@ declare module '@team-griffin/rehook' {
   type RenamablePropB = {
     [key: string]: any,
   }
-  interface RenamableProp<S extends string, V> extends RenamablePropA<S, V>, RenamablePropB {}
+
+  type RenamableProp<S extends string, V> = RenamablePropA<S, V> & RenamablePropB;
   export function renameProp<S extends string, T extends string, V, A extends RenamableProp<S, V>>(a: S, b: T): (props: A) => Pick<A, Exclude<keyof A, A>> & { [K in T]: V};
 
   /**
