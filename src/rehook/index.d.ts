@@ -170,5 +170,9 @@ declare module '@team-griffin/rehook' {
    * @param stateUpdaterName
    * @param initialState
    */
-  export function withState(stateName: string | symbol, stateUpdaterName: string | symbol, initialState: any): any;
+  export function withState<A extends string, B extends string, T>(
+    stateName: A,
+    stateUpdaterName: B,
+    initialState: T,
+  ): <P>(props: P) => P & { [K in A]: T } & { [K in B]: (v: T) => void };
 }
