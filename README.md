@@ -122,6 +122,7 @@ _Full disclaimer: Most of these docs are modified from the Recompose docs._
 - [`pipe()`](#pipe)
 - [`mapProps()`](#mapprops)
 - [`withProps()`](#withprops)
+- [`omitProps()`](#omitprops)
 - [`tap()`](#tap)
 - [`withPropsOnChange()`](#withpropsonchange)
 - [`withHandlers()`](#withhandlers)
@@ -168,6 +169,14 @@ withProps(
 Like `mapProps()`, except the newly created props are merged with the owner props.
 
 Instead of a function, you can also pass a props object directly. In this form, it is similar to `defaultProps()`, except the provided props take precedence over props from the owner.
+
+### `omitProps()`
+```js
+omitProps(
+  keys: string[]
+): (props: Object) => Object
+```
+Omits props with the given keys
 
 ### `tap()`
 ```js
