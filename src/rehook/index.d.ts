@@ -142,6 +142,8 @@ declare module '@team-griffin/rehook' {
     fn: ((props: A) => B) | B,
   ): (props: A) => A & B;
 
+  export function omitProps<K extends string>(keys: K[]): <A>(props: A) => Omit<A, K>
+
   /**
    * 
    * @param stateName

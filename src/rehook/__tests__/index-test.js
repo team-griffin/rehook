@@ -23,5 +23,6 @@ test('exports expected', () => {
     'withStateHandlers',
     'withState',
     'tap',
+    'omitProps',
   ])
 })
