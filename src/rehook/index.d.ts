@@ -1,5 +1,6 @@
 declare module '@team-griffin/rehook' {
   import { ComponentType, Component } from 'react';
+  import { Omit } from 'utility-types';
   /**
    * 
    * @param condition

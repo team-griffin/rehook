@@ -1,7 +1,7 @@
 {
   "name": "@team-griffin/rehook",
   "public": true,
-  "version": "2.2.0",
+  "version": "2.2.1",
   "main": "dist/rehook.js",
   "umd:main": "dist/rehook.umd.js",
   "source": "src/rehook/index.js",
@@ -35,7 +35,8 @@
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-replace": "^2.1.0",
-    "rollup-plugin-uglify": "^6.0.0"
+    "rollup-plugin-uglify": "^6.0.0",
+    "utility-types": "^3.10.0"
   },
   "peerDependencies": {
     "react": "^16.8.6",
