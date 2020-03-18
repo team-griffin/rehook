@@ -143,6 +143,13 @@ declare module '@team-griffin/rehook' {
     fn: ((props: A) => B) | B,
   ): (props: A) => A & B;
 
+  export function withProp<A, B, S extends string>(
+    key: S,
+    fn: ((props: A) => B) | B
+  ): A & {
+    [K in S]: B
+  }
+
   export function omitProps<K extends string>(keys: K[]): <A>(props: A) => Omit<A, K>
 
   /**

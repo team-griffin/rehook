@@ -170,6 +170,15 @@ Like `mapProps()`, except the newly created props are merged with the owner prop
 
 Instead of a function, you can also pass a props object directly. In this form, it is similar to `defaultProps()`, except the provided props take precedence over props from the owner.
 
+### `withProp()`
+```ts
+withProp<P, T>(
+  key: string,
+  createProp: T | (ownerProps: P) => T
+): (props: P) => P & { [key]: T }
+```
+Like `withProps()` except the returned value is assigned to a specific prop
+
 ### `omitProps()`
 ```js
 omitProps(
