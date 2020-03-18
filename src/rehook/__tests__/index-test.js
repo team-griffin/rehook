@@ -24,5 +24,6 @@ test('exports expected', () => {
     'withState',
     'tap',
     'omitProps',
+    'withProp',
   ])
 })
